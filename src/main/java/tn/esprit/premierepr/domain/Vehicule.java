@@ -22,6 +22,9 @@ public class Vehicule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVehicule;
+    @ManyToOne
+    @Column(nullable = false, unique = true, length = 20)
+    private Agence idag;
 
     @Column(nullable = false, unique = true, length = 20)
     private String immatriculation;

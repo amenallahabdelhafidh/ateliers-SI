@@ -11,7 +11,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Employe")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,6 +20,9 @@ public class Employe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmploye;
+    @ManyToOne
+    @Column(nullable = false, unique = true, length = 20)
+    private Agence idag;
     @Column(nullable = false, unique = true, length = 20)
     private String nom;
     @Column(nullable = false, unique = true, length = 20)

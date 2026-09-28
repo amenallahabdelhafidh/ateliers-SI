@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "Agence")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,6 +19,12 @@ public class Agence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgence;
+    @OneToMany(mappedBy = "Agence",fetch = FetchType.LAZY)
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Vehicule> vehicules;
+    @OneToMany(mappedBy = "Employe",fetch = FetchType.LAZY)
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Employe>  employes;
     @Column(nullable = false, unique = true, length = 20)
     private String nom;
     @Column(nullable = false, unique = true, length = 20)

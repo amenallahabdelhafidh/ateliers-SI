@@ -19,6 +19,9 @@ public class Maintenance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMaintenance;
+    @ManyToOne
+    @Column(nullable = false, unique = true, length = 20)
+    private Vehicule idveh;
     @Column(nullable = false, unique = true, length = 20)
     private Date dateDebut;
     @Column(nullable = false, unique = true, length = 20)
