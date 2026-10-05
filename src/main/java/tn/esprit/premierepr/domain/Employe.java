@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -22,7 +23,10 @@ public class Employe {
     private Long idEmploye;
     @ManyToOne
     @Column(nullable = false, unique = true, length = 20)
-    private Agence idag;
+    private Agence agence;
+    @OneToMany
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Reservation>reservations;
     @Column(nullable = false, unique = true, length = 20)
     private String nom;
     @Column(nullable = false, unique = true, length = 20)

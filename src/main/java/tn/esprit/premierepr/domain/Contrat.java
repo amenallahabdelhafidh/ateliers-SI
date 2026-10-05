@@ -7,9 +7,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table(name = "Contrat")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,4 +25,11 @@ public class Contrat {
     private long montantTotal;
     @Column(nullable = false, length = 20)
     private boolean valide;
+    @OneToOne(mappedBy = "contrat")
+    @Column(nullable = false, unique = true, length = 20)
+    private Reservation reservation;
+    @OneToMany(mappedBy = "contrat")
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Paiement> paiements;
+
 }

@@ -9,7 +9,6 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name = "Maintenance")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,7 +20,7 @@ public class Maintenance {
     private Long idMaintenance;
     @ManyToOne
     @Column(nullable = false, unique = true, length = 20)
-    private Vehicule idveh;
+    private Vehicule vehicule;
     @Column(nullable = false, unique = true, length = 20)
     private Date dateDebut;
     @Column(nullable = false, unique = true, length = 20)

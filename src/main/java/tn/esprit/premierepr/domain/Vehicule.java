@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
-@Table(name = "vehicule")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,8 +24,10 @@ public class Vehicule {
     private Long idVehicule;
     @ManyToOne
     @Column(nullable = false, unique = true, length = 20)
-    private Agence idag;
-
+    private Agence agence;
+    @ManyToMany
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Equipement> equipements;
     @Column(nullable = false, unique = true, length = 20)
     private String immatriculation;
 

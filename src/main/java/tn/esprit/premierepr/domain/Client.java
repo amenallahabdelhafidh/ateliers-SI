@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -29,4 +30,7 @@ public class Client {
     private long numPermis;
     @Column(nullable = false, unique = true, length = 20)
     private Date dateInscription;
+    @OneToMany(mappedBy = "client")
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Reservation>reservations;
 }

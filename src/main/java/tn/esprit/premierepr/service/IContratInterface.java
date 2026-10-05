@@ -1,0 +1,14 @@
+package tn.esprit.premierepr.service;
+
+import tn.esprit.premierepr.domain.Contrat;
+
+import java.util.List;
+
+public interface IContratInterface {
+    List<Contrat> retrieveAllContrats();
+    Contrat addContrat(Contrat c);
+    Contrat updateContrat(Contrat c);
+    Contrat retrieveContrat(Long idContrat);
+    void removeContrat(Long idContrat);
+    List<Contrat> addContrats (List<Contrat> Contrats);
+}

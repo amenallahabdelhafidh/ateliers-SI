@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "Reservation")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,6 +17,10 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
+
+    @ManyToOne
+    @Column(nullable = false, unique = true, length = 20)
+    private Client client;
 
     @Column(nullable = false, unique = true, length = 20)
     private Date dateDebut;

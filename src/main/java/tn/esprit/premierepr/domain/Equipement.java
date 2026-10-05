@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "Equipement")
@@ -21,4 +22,7 @@ public class Equipement {
     private Long idEquipement;
     @Column(nullable = false, unique = true, length = 20)
     private String libelle;
+    @ManyToMany(mappedBy = "equipements")
+    @Column(nullable = false, unique = true, length = 20)
+    private Set<Vehicule> Vehicules;
 }

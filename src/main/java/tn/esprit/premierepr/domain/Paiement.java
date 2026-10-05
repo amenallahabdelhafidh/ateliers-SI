@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import java.util.Date;
 @Entity
-@Table(name = "Paiment")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,4 +24,7 @@ public class Paiement {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private ModePaiement modePaiement;
+    @ManyToOne
+    @Column(nullable = false, unique = true, length = 20)
+    private Contrat contrat;
 }
